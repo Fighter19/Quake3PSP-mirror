@@ -44,7 +44,7 @@ static float	s_flipMatrix[16] =
 /*
 ** GL_Bind
 */
-#include <valloc.h>
+#include <vramalloc.h>
 
 typedef struct
 {

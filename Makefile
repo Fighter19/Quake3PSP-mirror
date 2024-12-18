@@ -18,7 +18,11 @@ CFLAGS = \
 -pipe -DNDEBUG \
 -ffast-math -fno-strict-aliasing \
 -fstrength-reduce \
--D__linux__ -DPSP_VFPU -DWITH_NET
+-D__linux__ -DPSP_VFPU -DWITH_NET \
+-Wno-error=implicit-function-declaration \
+-Wno-error=int-conversion \
+-Wno-error=narrowing \
+-Wno-error=incompatible-pointer-types
 
 CXXFLAGS = $(CFLAGS) -fno-rtti -Wcast-qual
 ASFLAGS = $(CFLAGS) -c
