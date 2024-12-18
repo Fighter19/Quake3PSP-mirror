@@ -198,15 +198,15 @@ int danzeff_get_png_image_size(const char* filename, u32 *png_width, u32 *png_he
 	info_ptr = png_create_info_struct(png_ptr);
 	if (info_ptr == NULL) {
 		fclose(fp);
-		png_destroy_read_struct(&png_ptr, png_infopp_NULL, png_infopp_NULL);
+		png_destroy_read_struct(&png_ptr, NULL, NULL);
 		return -1;
 	}
 	png_init_io(png_ptr, fp);
 	png_set_sig_bytes(png_ptr, sig_read);
 	png_read_info(png_ptr, info_ptr);
-	png_get_IHDR(png_ptr, info_ptr, &width, &height, &bit_depth, &color_type, &interlace_type, int_p_NULL, int_p_NULL);
+	png_get_IHDR(png_ptr, info_ptr, &width, &height, &bit_depth, &color_type, &interlace_type, NULL, NULL);
 
-	png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
+	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
 	fclose(fp);
 
 	*png_width = width;
@@ -236,13 +236,13 @@ int danzeff_load_png_image(const char* filename, u32 *ImageBuffer)
 	info_ptr = png_create_info_struct(png_ptr);
 	if (info_ptr == NULL) {
 		fclose(fp);
-		png_destroy_read_struct(&png_ptr, png_infopp_NULL, png_infopp_NULL);
+		png_destroy_read_struct(&png_ptr, NULL, NULL);
 		return -1;
 	}
 	png_init_io(png_ptr, fp);
 	png_set_sig_bytes(png_ptr, sig_read);
 	png_read_info(png_ptr, info_ptr);
-	png_get_IHDR(png_ptr, info_ptr, &width, &height, &bit_depth, &color_type, &interlace_type, int_p_NULL, int_p_NULL);
+	png_get_IHDR(png_ptr, info_ptr, &width, &height, &bit_depth, &color_type, &interlace_type, NULL, NULL);
 	png_set_strip_16(png_ptr);
 	png_set_packing(png_ptr);
 	if (color_type == PNG_COLOR_TYPE_PALETTE) png_set_palette_to_rgb(png_ptr);
@@ -252,12 +252,12 @@ int danzeff_load_png_image(const char* filename, u32 *ImageBuffer)
 	line = (u32*) malloc(width * 4);
 	if (!line) {
 		fclose(fp);
-		png_destroy_read_struct(&png_ptr, png_infopp_NULL, png_infopp_NULL);
+		png_destroy_read_struct(&png_ptr, NULL, NULL);
 		return -1;
 	}
 	for (y = 0; y < height; y++)
 	{
-		png_read_row(png_ptr, (u8*) line, png_bytep_NULL);
+		png_read_row(png_ptr, (u8*) line, NULL);
 		for (x = 0; x < width; x++)
 		{
 			ImageBuffer[y*width+x] = line[x];
@@ -265,7 +265,7 @@ int danzeff_load_png_image(const char* filename, u32 *ImageBuffer)
 	}
 	free(line);
 	png_read_end(png_ptr, info_ptr);
-	png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
+	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
 	fclose(fp);
 	return 0;
 }
