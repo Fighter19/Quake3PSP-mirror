@@ -32,7 +32,7 @@ LIBDIR =
 LIBS =  -lpspvram -lpspgum_vfpu \
 -lpspvfpu -lpspgu -lpsphprm -lpspdebug -lpspaudiolib -lpspaudio  -lpsprtc \
 -lpspdisplay -lpspctrl -lpspsdk -lc \
--lpspwlan -lstdc++ -lm -lpsppower -lpng -lz -Wl,--whole-archive -lpspuser -lpspge -lpsputility -lpspnet -lpspnet_inet -lpspnet_apctl -lpspnet_resolver -Wl,--no-whole-archive \
+-lpspwlan -lstdc++ -lm -lpsppower -lpng -lz -Wl,--whole-archive -lpspuser -lpspge -lpsputility -lpspnet -lpspnet_inet -lpspnet_apctl -lpspnet_resolver -lpspkubridge -Wl,--no-whole-archive \
 
 
 B=bin
