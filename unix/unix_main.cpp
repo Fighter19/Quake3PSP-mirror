@@ -464,7 +464,9 @@ changed the load procedure to match VFS logic, and allow developer use
 */
 extern "C"
 {
+#ifndef __PSP__
 #include <systemctrl.h>
+#endif
 char   *FS_BuildOSPath( const char *base, const char *game, const char *qpath );
 
 void dllEntryUI( int (*syscallptr)(int, ...) );
