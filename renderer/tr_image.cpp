@@ -68,7 +68,7 @@ int		gl_filter_max = 0;//GL_LINEAR;
 #define FILE_HASH_SIZE		1024
 static	image_t*		hashTable[FILE_HASH_SIZE];
 
-qboolean 		texused[1024];
+qboolean 		texused[MAX_DRAWIMAGES];
 int alltexsize    = 0;
 
 /*
