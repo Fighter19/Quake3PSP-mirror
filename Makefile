@@ -10,7 +10,7 @@ BUILD_PRX		  = 1
 CC = psp-gcc
 CXX = psp-g++
 
-INCDIR =
+INCDIR = compat
 #CFLAGS = -O3 -G0 -Wall -fno-strict-aliasing -D__linux__
 #CFLAGS = -O6 -G0 -fomit-frame-pointer -pipe -ffast-math -fno-strict-aliasing -fstrength-reduce -D__linux__
 CFLAGS = \
