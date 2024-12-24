@@ -1445,7 +1445,7 @@ image_t *R_CreateImage( const char *name, const byte *pic, int width, int height
 	        break;
 		 }
 
-		if (image->vram && image->ram)
+		if (image->vram && image->ram && !isUpdate)
 		{
 			free(image->ram);
 			image->ram = NULL;
@@ -1486,13 +1486,6 @@ image_t *R_CreateImage( const char *name, const byte *pic, int width, int height
 	  	}
 
 		image->texnum = texindex;
-
-		if (image->vram && image->ram)
-		{
-			free(image->ram);
-			image->ram = NULL;
-		}
-
 	}
     
 	return image;
